@@ -1,0 +1,1 @@
+{"TLC": {"name": "TLC", "weather": "cielo claro", "temp": 19.48, "temp_min": 19.48, "temp_max": 19.48, "feels_like": 18.55}, "MTY": {"name": "MTY", "weather": "cielo claro", "temp": 21.92, "temp_min": 21.92, "temp_max": 22, "feels_like": 21.89}, "MEX": {"name": "MEX", "weather": "cielo claro", "temp": 21.68, "temp_min": 21.21, "temp_max": 21.68, "feels_like": 20.66}}
