@@ -1,3 +1,8 @@
+**Integrantes**:
+- Carlos Cabrera Ramirez
+- Sergio 
+
+
 **Proyecto 01** para la clase de **Modelado y Programacion** con el profesor Jose Galaviz, Ximena Lezama y Karla Esquivel en la Facultad de Ciencias, UNAM. 
 
 **Weather Consult** es una aplicacion que permite a partir de un CSV preformateado obtener un informe de la temperatura actual, asi como datos general del clima en un aeropuerto usando la API de [OpenWeather](https://openweathermap.org/) escrita en Python. 
