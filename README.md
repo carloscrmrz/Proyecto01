@@ -27,4 +27,4 @@ $ python3 weather_app.py
 Este producira dos archivos:
 
 - `./weather_data_cache.txt`: aqui se guardan los ultimos requests hechos, para futuro uso de la aplicacion.
-- `./report.txt`: aqui se guarda el reporte de texto hecho por la aplicacion, para su consulta.
+- `./report.html`: aqui se guarda el reporte de texto hecho por la aplicacion, para su consulta.
