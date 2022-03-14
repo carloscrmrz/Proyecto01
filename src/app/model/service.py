@@ -27,9 +27,6 @@ def get_json_info(lat, lon, units='metric', lang='sp'):
     # Checamos que la URL este correcta.
     assert( r.url == f"http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&units={units}&appid={API_KEY}&lang={lang}" )
 
-    # Ahora probamos que la respuesta del servidor sea exitosa.
-    assert( r.status_code == 200 )
-
     # Para este punto ya tenemos nuestra respuesta del servidor, la cual
     # convertiremos a JSON y devolveremos para su proceso en la aplicacion
     return r.json()
