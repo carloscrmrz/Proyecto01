@@ -1,6 +1,6 @@
 **Integrantes**:
 - Carlos Cabrera Ramirez
-- Sergio 
+- Sergio Medina Guzman 
 
 
 **Proyecto 01** para la clase de **Modelado y Programacion** con el profesor Jose Galaviz, Ximena Lezama y Karla Esquivel en la Facultad de Ciencias, UNAM. 
