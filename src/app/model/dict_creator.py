@@ -3,7 +3,7 @@ def create_dict(json_data, iata):
     assert( isinstance(json_data, dict) )
     airport_info = {}
     airport_info["name"] = iata
-    airport_info["time_of_consult"] = datetime.now().strftime("%H:%M")
+    airport_info["time_of_consult"] = datetime.now().strftime("%Y-%m-%d %H:%M")
     airport_info["weather"] = json_data["weather"][0]["description"]
     airport_info["temp"] = json_data["main"]["temp"]
     airport_info["temp_min"] = json_data["main"]["temp_min"]
