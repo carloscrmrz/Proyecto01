@@ -47,11 +47,11 @@ def process_airport(row, dest_origin_flag):
         i = 4
 
     if not is_in_cache(iata):
-        airport = service.convert_request_to_json(service.make_get_request((row[i], row[i+1])))
+        airport = service.convert_request_to_json(service.make_get_request(row[i], row[i+1]))
         airport_cache[iata] = dc.create_dict(airport, iata)
     else:
         if cache.is_cache_expired(airport_cache[iata]["time_of_consult"]):
-            airport = service.convert_request_to_json(service.make_get_request((row[i], row[i+1])))
+            airport = service.convert_request_to_json(service.make_get_request(row[i], row[i+1]))
             airport_cache[iata] = dc.create_dict(airport, iata)
 
 def process_data(row):

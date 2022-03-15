@@ -20,4 +20,4 @@ def make_get_request(lat, lon, units='metric', lang='sp'):
     return r
 
 def convert_request_to_json(request):
-    return r.json()
+    return request.json()

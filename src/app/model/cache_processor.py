@@ -53,8 +53,6 @@ def read_from_cache():
 """
 def is_cache_expired(hour_of_consult):
     delta = abs((datetime.now() - datetime.strptime(hour_of_consult, "%Y-%m-%d %H:%M")))
-    print(datetime.strptime(hour_of_consult, "%Y-%m-%d %H:%M"))
-    print(delta)
     if delta < timedelta(hours=1):
         return False
     else:
