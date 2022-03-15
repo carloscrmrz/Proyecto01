@@ -23,8 +23,8 @@ def main():
             if line_count == 0:
                 line_count += 1
             else:
-                if line_count == 100:
-                    break
+                if line_count % 600 == 0:
+                    sleep(60)
                 # Sabemos que las columnas 2,3 son las coordenadas de nuestro aeropuerto de origen
                 # mientras que las columnas 4,5 son las coordenadas del aeropuerto destino.
                 # Estas columnas las obtenemos con row[i].
@@ -47,12 +47,12 @@ def process_airport(row, dest_origin_flag):
         i = 4
 
     if not is_in_cache(iata):
-        airport_origin = service.get_json_info(row[i], row[i+1])
-        airport_cache[iata] = dc.create_dict(airport_origin, iata)
+        airport = service.convert_request_to_json(service.make_get_request((row[i], row[i+1])))
+        airport_cache[iata] = dc.create_dict(airport, iata)
     else:
         if cache.is_cache_expired(airport_cache[iata]["time_of_consult"]):
-            airport_origin = service.get_json_info(row[i], row[i+1])
-            airport_cache[iata] = dc.create_dict(airport_origin, iata)
+            airport = service.convert_request_to_json(service.make_get_request((row[i], row[i+1])))
+            airport_cache[iata] = dc.create_dict(airport, iata)
 
 def process_data(row):
     process_airport(row, 0)
