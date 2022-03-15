@@ -9,7 +9,7 @@ if __name__ == '__main__':
  Funcion para escribir al archivo de cache al disco, esta recibe un
  diccionario de Python y lo convierte a un objeto tipo string, el 
  cual se escribe al disco, con el nombre de archivo dado.
- cache_dict: el diccionario el cual convertira se escribira a disco.
+ @param cache_dict el diccionario el cual convertira se escribira a disco.
 """
 
 def write_to_cache(cache_dict):
@@ -28,7 +28,7 @@ def write_to_cache(cache_dict):
  el nombre del archivo dado donde se ejecuta el programa y convierte
  el texto en un diccionario de Python.
  Si no existe el archivo, simplemente regresa un diccionario vacio
- Regresa un diccionario de python para su uso.
+ @returns un diccionario de python para su uso.
 """
 def read_from_cache():
     path_to_cache = "weather_data_cache.txt"
@@ -48,8 +48,9 @@ def read_from_cache():
 """
  Funcion auxiliar que nos permite checar de manera rapida si nuestra
  consulta guardada en cache aun es valida (menor a una hora).
- La funcion regresa False si la consuta ya no es valida, True si lo 
- sigue siendo.
+ @param hour_of_consult una String con el formato Y-m-d H:M (anyo-mes-dia hora:minuto)
+ @returns False si no ha pasado mas de una hora desde la ultima consulta, True de 
+          otra manera
 """
 def is_cache_expired(hour_of_consult):
     delta = abs((datetime.now() - datetime.strptime(hour_of_consult, "%Y-%m-%d %H:%M")))

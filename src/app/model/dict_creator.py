@@ -1,4 +1,16 @@
 from datetime import datetime
+
+if __name__ == '__main__':
+    print("Usage: python3 weather_app.py\n")
+    os._exit(os.EX_OK)
+
+"""
+ Funcion que permite sanitizar los datos que la API nos entrega.
+ @param json_data diccionario de python con los datos de la API.
+ @param iata el codigo IATA del aeropuerto consultado.
+ @returns un diccionario con los datos necesarios para nuestro 
+          generador de reportes.
+"""
 def create_dict(json_data, iata):
     assert( isinstance(json_data, dict) )
     airport_info = {}
