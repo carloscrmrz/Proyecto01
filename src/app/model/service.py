@@ -14,19 +14,10 @@ if __name__ == '__main__':
 # OpenWeather, esta recibe latitud y longitud, asi como de manera opcional el tipo
 # de unidad que queremos para mostrar nuestra temperatura.
 
-def get_json_info(lat, lon, units='metric', lang='sp'):
-
+def make_get_request(lat, lon, units='metric', lang='sp'):
     payload = {'lat': lat, 'lon': lon, 'units': units, 'appid': API_KEY, 'lang': lang}
-
-    # Usaremos la biblioteca de requests para hacer (valga la redundancia) los
-    # requests al servidor de OpenWeather, el metodo get crea nuestra URL a partir
-    # del dominio que le pasamos de la API mas los parametros que creamos a partir
-    # del diccionario 'payload'.
-
     r = requests.get(API_DOMAIN, params=payload)
-    # Checamos que la URL este correcta.
-    assert( r.url == f"http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&units={units}&appid={API_KEY}&lang={lang}" )
+    return r
 
-    # Para este punto ya tenemos nuestra respuesta del servidor, la cual
-    # convertiremos a JSON y devolveremos para su proceso en la aplicacion
+def convert_request_to_json(request):
     return r.json()
