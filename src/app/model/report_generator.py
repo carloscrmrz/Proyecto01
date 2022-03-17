@@ -1,3 +1,4 @@
+import csv
 """
  Funcion que genera el reporte, crea una plantilla HTML y genera de
  manera dinamica la tabla donde se mostraran de manera mas amigable
@@ -14,15 +15,27 @@ def generate(cache):
     <body>
     <table>
     <tr>\n
-    \t<th>Aeropuerto</th>\n
+    \t<th>Aeropuerto Origen</th>\n
+    \t<th>Temperatura</th>\n
+    \t<th>Temp. Min.</th>\n
+    \t<th>Temp. Max.</th>\n
+    \t<th>Descripcion</th>\n
+    \t<th>Aeropuerto Destino</th>\n
     \t<th>Temperatura</th>\n
     \t<th>Temp. Min.</th>\n
     \t<th>Temp. Max.</th>\n
     \t<th>Descripcion</th>\n
     </tr>\n
     """
-    for report in cache:
-        html += create_table_row(cache[report])
+
+    with open('dataset1.csv') as airport_data_file:
+        airport_data = csv.reader(airport_data_file, delimiter=',')
+        line_count = 0
+        for row in airport_data:
+            if line_count == 0:
+                line_count += 1
+            else:
+                html += process_ticket(row,cache)
 
     html += "</table></body></html>"
 
@@ -39,12 +52,27 @@ def generate(cache):
          nuestra tabla.
 """
 def create_table_row(airport_dict):
-    table = "<tr>\n"
-    table += f"\t<th>{airport_dict['name']}</th>\n"
+    table = f"\t<th>{airport_dict['name']}</th>\n"
     table += f"\t<th>{airport_dict['temp']}°C</th>\n"
     table += f"\t<th>{airport_dict['temp_min']}°C</th>\n"
     table += f"\t<th>{airport_dict['temp_max']}°C</th>\n"
     table += f"\t<th>{airport_dict['weather']}</th>\n"
-    table += "</tr>\n"
 
     return table
+
+"""
+ Funcion auxiliar que procesa cada ticket de manera individual para 
+ crear una fila de la tabla que muestra la temperatura de ticket.
+ @param row la fila (el ticket) a procesar.
+ @param cache el cache de donde extraemos los datos.
+ @return la fila a mostrarse en la tabla.
+"""
+def process_ticket(row,cache):
+
+    table = "<tr>\n"
+    table += create_table_row(cache[row[0]])
+    table += create_table_row(cache[row[1]])
+    table += "</tr>\n"
+    
+    return table
+
